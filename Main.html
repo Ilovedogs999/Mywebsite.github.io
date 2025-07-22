@@ -1,1 +1,101 @@
-<title></title>Main Test
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Xbox Access Vault</title>
+  <style>
+    body {
+      margin: 0;
+      background: #0f111a;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .tablet {
+      width: 320px;
+      height: 500px;
+      background: linear-gradient(to bottom right, #1f2330, #2b2f40);
+      border-radius: 40px;
+      box-shadow: 0 0 40px rgba(0, 255, 255, 0.2);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: #fff;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .header h1 {
+      font-size: 20px;
+      margin: 0;
+    }
+
+    input[type="password"] {
+      width: 80%;
+      padding: 10px;
+      margin: 0 auto 20px;
+      display: block;
+      background: #1a1c25;
+      border: none;
+      border-radius: 10px;
+      color: #0ff;
+      text-align: center;
+      font-size: 18px;
+    }
+
+    button {
+      width: 80%;
+      margin: 0 auto;
+      padding: 10px;
+      border: none;
+      background: #00ffaa;
+      color: #000;
+      font-weight: bold;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .status {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 14px;
+      color: #ff0066;
+    }
+  </style>
+</head>
+<body>
+  <div class="tablet">
+    <div class="header">
+      <h1>Enter Xbox PIN</h1>
+    </div>
+    <input type="password" id="pin" placeholder="••••" maxlength="6" />
+    <button onclick="checkPIN()">Access Vault</button>
+    <div class="status" id="status"></div>
+  </div>
+
+  <script>
+    function checkPIN() {
+      const input = document.getElementById('pin').value;
+      const correctPIN = "1234"; // Replace with your actual PIN if private
+      const status = document.getElementById('status');
+
+      if (input === correctPIN) {
+        status.textContent = "✅ Access Granted";
+        status.style.color = "#00ffaa";
+      } else {
+        status.textContent = "❌ Invalid PIN";
+        status.style.color = "#ff0066";
+      }
+    }
+  </script>
+</body>
+</html>
